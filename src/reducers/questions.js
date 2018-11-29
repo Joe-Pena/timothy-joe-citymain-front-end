@@ -32,7 +32,7 @@ const questionsReducer = (state = initialState, action) => {
         numberOfAttempts: state.currentQuestion.numberOfAttempts + 1,
         memoryStrength: 1},
     })
-  } else if (action.type === ANSWER_RESET) {
+  } else if(action.type === ANSWER_RESET) {
     return Object.assign({}, state, {
       gotRightAnswer: null,
     })

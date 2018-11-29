@@ -6,20 +6,10 @@ export const fetchQuestionSuccess = (question) => ({
   question,
 });
 
-export const GOT_RIGHT_ANSWER = 'GOT_RIGHT_ANSWER';
-export const gotRightAnswer = {
-  type: GOT_RIGHT_ANSWER,
-};
-
-export const GOT_WRONG_ANSWER = 'GOT_WRONG_ANSWER';
-export const gotWrongAnswer = {
-  type: GOT_WRONG_ANSWER,
-};
-
 export const ANSWER_RESET = 'ANSWER_RESET';
-export const answerReset = {
+export const answerReset = () => ({
   type: ANSWER_RESET,
-};
+});
 
 export const NEW_GUESS = 'NEW_GUESS';
 export const newGuess = (guess) => ({

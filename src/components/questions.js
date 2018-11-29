@@ -2,7 +2,7 @@ import React from 'react';
 import './dashboard.css';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {newGuess, guessSent} from '../actions/questions';
+import {newGuess, guessSent, fetchQuestion, answerReset} from '../actions/questions';
 
 export class Question extends React.Component {
   render() {
@@ -40,7 +40,11 @@ export class Question extends React.Component {
             <div className="question-box">
                 <h2>You got it wrong, study more!</h2>
             </div>
-            <button className="next-question-btn">Next</button>
+            <button className="next-question-btn" onClick={() => {
+              this.props.dispatch(fetchQuestion(this.props.token));
+              this.props.dispatch(answerReset());
+              console.log(this.props.gotRightAnswer);
+            }}>Next</button>
         </React.Fragment>
       )
     }
