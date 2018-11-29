@@ -14,7 +14,7 @@ const store = createStore(
         protectedData: protectedDataReducer,
         question: questionsReducer,
     }),
-    applyMiddleware(thunk)
+    applyMiddleware(thunk),
 );
 
 // Hydrate the authToken from localStorage if it exist
