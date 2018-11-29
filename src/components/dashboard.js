@@ -45,6 +45,15 @@ export class Dashboard extends React.Component {
         });
     }
 
+    capitalizeCity(name) {
+        console.log(name);
+        const capital = name.charAt(0);
+        console.log(capital);
+        const rest = name.slice(1).toLowerCase();
+        console.log(rest);
+        return capital + rest;
+    }
+
     render() {
         const { answered, feedback, value } = this.state;
         const { question, stats, username } = this.props;
@@ -72,7 +81,7 @@ export class Dashboard extends React.Component {
                     <div className="dashboard-name">Name: {this.props.name}</div>
                     <h3>Which country is this capital city from?</h3>
                     <div className="question-box">
-                        <h2>{question}</h2>
+                        <h2>{this.capitalizeCity(question)}</h2>
                     </div>
                     {
                         answered ? 
