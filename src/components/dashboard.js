@@ -87,7 +87,10 @@ export class Dashboard extends React.Component {
                         answered ? 
                             <div> 
                                 <p className='feedback'>{feedback}</p>
-                                <button className='next-button' onClick={() => this.next()}>Next</button>
+                                <button className='next-button' onClick={() => {
+                                    this.next();
+                                    this.props.dispatch(fetchStats());
+                                    }}>Next</button>
                             </div>
                             :
                             <form onSubmit={(e) => this.onSubmit(e)}>
