@@ -1,9 +1,20 @@
 import {API_BASE_URL} from '../config';
 
+export const GET_PROGRESS = 'GET_PROGRESS';
+export const getProgress = () => ({
+  type: GET_PROGRESS,
+});
+
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
 export const fetchQuestionSuccess = (question) => ({
   type: FETCH_QUESTION_SUCCESS,
   question,
+});
+
+export const FETCH_STATS_SUCCESS = 'FETCH_STATS_SUCCESS';
+export const fetchStatsSuccess = (stats) => ({
+  type: FETCH_STATS_SUCCESS,
+  stats,
 });
 
 export const fetchQuestion = () => (dispatch, getState) => {
@@ -45,3 +56,24 @@ export const answeredQuestion = (answeredCorrectly) => (dispatch, getState) => {
     alert('There has been an error');
   });
 };
+
+export const fetchStats = () => (dispatch, getState) => {
+  const token = getState().auth.authToken;
+
+  return (
+    fetch(`${API_BASE_URL}/api/stats`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(response => {
+      return response.json();
+    }).then(data => {
+      console.log(data);
+      return dispatch(fetchStatsSuccess(data));
+    }).catch(err => {
+      alert('Error returning stats');
+    })
+  )
+}

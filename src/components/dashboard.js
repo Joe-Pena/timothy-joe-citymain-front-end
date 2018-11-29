@@ -1,9 +1,9 @@
 import React from 'react';
 import './dashboard.css';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 // import {fetchProtectedData} from '../actions/protected-data';
-import { fetchQuestion, answeredQuestion } from '../actions/questions';
+import { fetchQuestion, answeredQuestion, getProgress, fetchStats } from '../actions/questions';
 
 export class Dashboard extends React.Component {
 
@@ -20,6 +20,7 @@ export class Dashboard extends React.Component {
 
     componentDidMount() {
         this.props.dispatch(fetchQuestion());
+        this.props.dispatch(fetchStats());
     }
 
     next(){
@@ -46,9 +47,23 @@ export class Dashboard extends React.Component {
 
     render() {
         const { answered, feedback, value } = this.state;
-        const { question, username } = this.props;
+        const { question, stats, username } = this.props;
 
-        if(this.props.question) {
+        if(this.props.checkProgress) {
+            return (
+                <div className="dashboard">
+                <div className="dashboard-username">
+                    Username: {username}
+                </div>
+                <div className="dashboard-name">Name: {this.props.name}</div>
+                <h3>Here's how well you've done, {this.props.username}</h3>
+                <div className="question-box">
+                    <h2>{stats.map((stat, index) => <li key={index}>{stat.answer}: {stat.numberOfSuccesses}</li>)}</h2>
+                </div>
+                    <button className="next-button" onClick={() => this.props.dispatch(getProgress())}>Go back</button>
+                </div>
+            )
+        } else if(this.props.question) {
             return (
                 <div className="dashboard">
                     <div className="dashboard-username">
@@ -86,13 +101,15 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
 
     const {currentUser} = state.auth;
-    const { question, answer} = state.currentQuestion;
+    const { question, answer, checkProgress, stats} = state.currentQuestion;
 
     return {
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
         question,
-        correctAnswer: answer
+        correctAnswer: answer,
+        checkProgress,
+        stats,
     };
 };
 

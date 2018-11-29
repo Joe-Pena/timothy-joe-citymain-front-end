@@ -12,11 +12,11 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Welcome to Javthon!</h2>
+            <h2>Welcome to CityMain!</h2>
             <p>
-                Here, you will be learning about all the different languages <br />
-                there are at a very brief level, so that when you see them <br /> 
-                out in the wild, you will know what language you're looking at!
+                Here, you will be learning about all the different capital cities <br />
+                there are in the world, so that when you see them <br /> 
+                out in the wild, you will know what country they're from!
             </p>
             <LoginForm />
             <Link to="/register">Sign Up</Link>
