@@ -1,13 +1,9 @@
-import {FETCH_QUESTION_SUCCESS, NEW_GUESS, ANSWERED_CORRECTLY, ANSWERED_INCORRECTLY} from '../actions/questions';
+import {FETCH_QUESTION_SUCCESS, NEW_GUESS, ANSWERED_CORRECTLY, ANSWERED_INCORRECTLY, ANSWER_RESET} from '../actions/questions';
 
 const initialState = {
   currentQuestion: null,
-  // questionAnswer: null,
-  // attempts: 0,
-  // corrects: 0,
-  // incorrects: 0,
-  // questionMemoryStrength: 0,
   currentGuess: '',
+  gotRightAnswer: null,
 }
 
 const questionsReducer = (state = initialState, action) => {
@@ -22,17 +18,23 @@ const questionsReducer = (state = initialState, action) => {
   } else if(action.type === ANSWERED_CORRECTLY) {
     console.log('Answered correctly');
     return Object.assign({}, state, {
+      gotRightAnswer: true,
       currentQuestion: {...state.currentQuestion,
         numberOfAttempts: state.currentQuestion.numberOfAttempts + 1,
         numberOfSuccesses: state.currentQuestion.numberOfSuccesses + 1,
-        memoryStrength: state.currentQuestion.memoryStrength * 2}
+        memoryStrength: state.currentQuestion.memoryStrength * 2},
     })
   } else if(action.type === ANSWERED_INCORRECTLY) {
-    console.log('answered ewrongf');
+    console.log('answered wrong');
     return Object.assign({}, state, {
+      gotRightAnswer: false,
       currentQuestion: {...state.currentQuestion,
         numberOfAttempts: state.currentQuestion.numberOfAttempts + 1,
-        memoryStrength: 1}
+        memoryStrength: 1},
+    })
+  } else if (action.type === ANSWER_RESET) {
+    return Object.assign({}, state, {
+      gotRightAnswer: null,
     })
   } else {
     return state;
