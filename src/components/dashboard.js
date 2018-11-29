@@ -28,7 +28,7 @@ export class Dashboard extends React.Component {
                     </div>
                     <form onSubmit={(event) => {
                         event.preventDefault();
-                        this.props.dispatch(guessSent(this.props.currentGuess, this.props.question, this.props.token))
+                        this.props.dispatch(guessSent(this.props.currentGuess.toLowerCase(), this.props.question, this.props.token))
                         }
                     }>
                         <input type="text" placeholder="Your answer here" onChange={(event) => this.props.dispatch(newGuess(event.target.value))} value={this.props.currentGuess}></input>
