@@ -4,13 +4,18 @@ export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
 export const fetchQuestionSuccess = (question) => ({
   type: FETCH_QUESTION_SUCCESS,
   question,
-})
+});
+
+export const ANSWER_RESET = 'ANSWER_RESET';
+export const answerReset = () => ({
+  type: ANSWER_RESET,
+});
 
 export const NEW_GUESS = 'NEW_GUESS';
 export const newGuess = (guess) => ({
   type: NEW_GUESS,
-  guess
-})
+  guess,
+});
 
 export const fetchQuestion = (token) => dispatch => {
   return (
@@ -43,7 +48,7 @@ export const answeredIncorrectly = {
 
 export const GUESS_SENT = 'GUESS_SENT';
 export const guessSent = (guess, question, token) => (dispatch, getState) => {
-  if(guess === question.answer) {
+  if(guess.toLowerCase() === question.answer.toLowerCase()) {
     dispatch(answeredCorrectly);
     console.log('sent to mlab, correct');
     fetch(`${API_BASE_URL}/api/questions`, {

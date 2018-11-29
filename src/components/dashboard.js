@@ -1,9 +1,10 @@
 import React from 'react';
 import './dashboard.css';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 // import {fetchProtectedData} from '../actions/protected-data';
-import {fetchQuestion, newGuess, guessSent} from '../actions/questions';
+import { fetchQuestion } from '../actions/questions';
+import Question from './questions';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -22,18 +23,7 @@ export class Dashboard extends React.Component {
                     <div className="dashboard-protected-data">
                         Protected data: {this.props.protectedData}
                     </div>
-                    <h3>What language is this written in?</h3>
-                    <div className="question-box">
-                        <h2>{this.props.question.question}</h2>
-                    </div>
-                    <form onSubmit={(event) => {
-                        event.preventDefault();
-                        this.props.dispatch(guessSent(this.props.currentGuess, this.props.question, this.props.token))
-                        }
-                    }>
-                        <input type="text" placeholder="Your answer here" onChange={(event) => this.props.dispatch(newGuess(event.target.value))} value={this.props.currentGuess}></input>
-                        <button type="submit">submit!</button>
-                    </form>
+                    <Question />
                 </div>
             );
         } else {
