@@ -12,7 +12,7 @@ const store = createStore(
         form: formReducer,
         auth: authReducer,
         protectedData: protectedDataReducer,
-        question: questionsReducer,
+        currentQuestion: questionsReducer,
     }),
     applyMiddleware(thunk),
 );
