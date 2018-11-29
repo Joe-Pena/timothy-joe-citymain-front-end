@@ -70,7 +70,7 @@ export class Dashboard extends React.Component {
                         Username: {username}
                     </div>
                     <div className="dashboard-name">Name: {this.props.name}</div>
-                    <h3>Which language is this written in?</h3>
+                    <h3>Which country is this capital city from?</h3>
                     <div className="question-box">
                         <h2>{question}</h2>
                     </div>
