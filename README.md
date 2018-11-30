@@ -1,6 +1,6 @@
 # CityMain
 
-CityMain is a spaced repetition app for learning national capitals. It was built within 5 days by [Joe Pena](https://github.com/Joe-Pena) and [Timothy Chang](https://github.com/continuouslylearning).
+CityMain is a spaced repetition application for learning national capitals. It was built within 5 days by [Joe Pena](https://github.com/Joe-Pena) and [Timothy Chang](https://github.com/continuouslylearning).
 
 ## Use this app
 
