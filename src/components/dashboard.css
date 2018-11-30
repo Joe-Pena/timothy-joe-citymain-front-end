@@ -16,31 +16,83 @@ body {
   background-repeat: no-repeat;
 }
 
+input {
+  border-radius: 0.2rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 1.6rem;
+  height: 100vh;
+  text-align: center;
+}
+
 .header-bar {
   position: fixed;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 0.2fr;
+  grid-template-columns: 1fr 4% 4% 4%;
   width: 100%;
-  height: 5vh;
-  margin-bottom: 100px;
+  height: 2vh;
 }
 
-.header-btn {
-  width: 5rem;
-  display: inline-block;
-  margin: 0 0.5rem 0 0.5rem;
+.header-username {
   grid-column-start: 2;
 }
 
+.progress-btn {
+  width: 5rem;
+  grid-column-start: 3;
+  cursor: pointer;
+}
+
+.logout-btn {
+  width: 5rem;
+  grid-column-start: 4;
+  cursor: pointer;
+}
+
 .question-box {
+  grid-row-start: 3;
+  grid-column-start: 2;
   border: 1px solid black;
+  border-radius: .5rem;
+  background-color: #fff;
   display: inline-block;
   padding: 2rem;
+  text-align: center;
+}
+
+.dashboard-username {
+  grid-row-start: 2;
+  grid-column-start: 2;
+}
+
+.dashboard-name {
+  grid-row-start: 2;
+  grid-column-start: 2;
 }
 
 .next-question-btn {
   display: block;
+}
+
+.guess-form {
+  grid-row-start: 4;
+  grid-column-start: 2;
+}
+
+.feedback-after-guess {
+  grid-row-start: 4;
+  grid-column-start: 2;
+}
+
+.what-country-q {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  margin-top: 10rem;
 }
 
 /* LANDING PAGE */
@@ -66,7 +118,24 @@ body {
   border-radius: .5rem;
 }
 
+.signup-page-container {
+  display: grid;
+  grid-template-rows: 0.7fr 1fr 0.3fr 0.3fr;
+  grid-template-columns: 1fr;
+  grid-row-start: 2;
+  grid-row-end: 5;
+  grid-column-start: 2;
+  background-color: rgb(250, 250, 250);
+  padding: 1.2rem;
+  border-radius: .5rem;
+}
+
 .welcome-message {
+  grid-row-start: 1;
+  margin-top: 2rem;
+}
+
+.register-message {
   grid-row-start: 1;
   margin-top: 2rem;
 }
@@ -81,9 +150,69 @@ body {
   /* grid-column-start: 2; */
 }
 
+.signup-form {
+  grid-row-start: 2;
+  margin-bottom: 3rem;
+}
+
 .signup-btn {
   grid-row-start: 4;
   /* grid-column-start: 2; */
   font-size: 1rem;
   margin-top: 1rem;
+}
+
+.btn-to-login {
+  grid-row-start: 4;
+  /* grid-column-start: 2; */
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* PROGRESS STATS */
+
+/* .dashboard {
+  display: grid;
+  grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: 1.6rem;
+  height: 100vh;
+  text-align: center;
+} */
+
+.progress-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-start: 2;
+  grid-column-start: 2;
+  height: 100vh;
+  text-align: center;
+}
+
+.progress-message {
+  grid-row-start: 1;
+  grid-column-start: 2;
+  font-size: 1.5rem;
+}
+
+.progress-box {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  border: 1px solid black;
+  border-radius: .5rem;
+  background-color: #fff;
+  display: inline-block;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  list-style: none;
+}
+
+.goback-button {
+  grid-row-start: 3;
+  grid-column-start: 2;
+  width: 5rem;
+  height: 2rem;
+  margin: auto;
 }

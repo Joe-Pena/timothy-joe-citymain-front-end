@@ -61,31 +61,29 @@ export class Dashboard extends React.Component {
         if(this.props.checkProgress) {
             return (
                 <div className="dashboard">
-                <div className="dashboard-username">
-                    Username: {username}
-                </div>
-                <div className="dashboard-name">Name: {this.props.name}</div>
-                <h3>Here's how well you've done, {this.props.username}</h3>
-                <div className="question-box">
-                    <h2>{stats.map((stat, index) => <li key={index}>{stat.answer}: {stat.numberOfSuccesses}</li>)}</h2>
-                </div>
-                    <button className="next-button" onClick={() => this.props.dispatch(getProgress())}>Go back</button>
+                    <div className="progress-container">
+                        <h3 className="progress-message">Here's how well you've done, {this.props.username}</h3>
+                        <div className="progress-box">
+                            <h2>{stats.map((stat, index) => <li key={index}>{stat.answer}: {stat.numberOfSuccesses}</li>)}</h2>
+                        </div>
+                        <button className="goback-button" onClick={() => this.props.dispatch(getProgress())}>Go back</button>
+                    </div>
                 </div>
             )
         } else if(this.props.question) {
             return (
                 <div className="dashboard">
-                    <div className="dashboard-username">
-                        Username: {username}
-                    </div>
-                    <div className="dashboard-name">Name: {this.props.name}</div>
-                    <h3>Which country is this capital city from?</h3>
+                    {/* <div className="dashboard-username">
+                        {username}
+                    </div> */}
+                    <div className="dashboard-name">Hello, {this.props.name}!</div>
+                    <h3 className="what-country-q">Which country is this capital city from?</h3>
                     <div className="question-box">
                         <h2>{this.capitalizeCity(question)}</h2>
                     </div>
                     {
                         answered ? 
-                            <div> 
+                            <div className="feedback-after-guess"> 
                                 <p className='feedback'>{feedback}</p>
                                 <button className='next-button' onClick={() => {
                                     this.next();
@@ -93,7 +91,7 @@ export class Dashboard extends React.Component {
                                     }}>Next</button>
                             </div>
                             :
-                            <form onSubmit={(e) => this.onSubmit(e)}>
+                            <form className="guess-form" onSubmit={(e) => this.onSubmit(e)}>
                                 <input type="text" placeholder="Your answer here" onChange={(e) => this.setState({value: e.target.value})} value={value}></input>
                                 <button type="submit">submit!</button>
                             </form>
