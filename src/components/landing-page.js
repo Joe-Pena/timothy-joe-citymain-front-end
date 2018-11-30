@@ -12,14 +12,16 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <h2>Welcome to CityMain!</h2>
-            <p>
-                Here, you will be learning about all the different capital cities <br />
-                there are in the world, so that when you see them <br /> 
-                out in the wild, you will know what country they're from!
-            </p>
-            <LoginForm />
-            <Link to="/register">Sign Up</Link>
+            <div className="landing-page-container">
+                <h2 className="welcome-message">Welcome to CityMain!</h2>
+                <p className="app-description">
+                    Here, you will be learning about all the different capital cities <br />
+                    there are in the world, so that when you see them <br /> 
+                    out in the wild, you will know what country they're from!
+                </p>
+                <LoginForm className="login-form"/>
+                <span className="signup-btn">Not a member? <Link to="/register">Sign Up</Link></span>
+            </div>
         </div>
     );
 }
