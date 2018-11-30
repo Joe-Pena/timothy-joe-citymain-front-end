@@ -20,17 +20,17 @@ export class HeaderBar extends React.Component {
         let progressButton;
         if (this.props.loggedIn) {
             logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
+                <button className="header-btn" onClick={() => this.logOut()}>Log out</button>
             );
             progressButton = (
-                <button onClick={() => this.checkProgress()}>Progress</button>
+                <button className="header-btn" onClick={() => this.checkProgress()}>Progress</button>
             );
         }
         return (
             <div className="header-bar">
                 <h1>CityMain</h1>
-                {logOutButton}
                 {progressButton}
+                {logOutButton}
             </div>
         );
     }
