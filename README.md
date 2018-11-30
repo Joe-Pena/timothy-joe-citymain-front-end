@@ -5,7 +5,7 @@ CityMain is a spaced repetition app for learning national capitals. It was built
 ## Use this app
 
 ### Heroku
-This app is deployed [here](https://javthon-client.herokuapp.com/dashboard).
+CityMain is deployed on Heroku [here](https://javthon-client.herokuapp.com/dashboard).
 ### Demo account
 You can register a new user account or use this demo account.
 - Username: demoaccount
