@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import citymainlogo from '../images/citymainlogoname.svg';
 
 import LoginForm from './login-form';
 
@@ -12,16 +13,19 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-            <div className="landing-page-container">
-                <h2 className="welcome-message">Welcome to CityMain!</h2>
-                <p className="app-description">
-                    Here, you will be learning about all the different capital cities <br />
-                    there are in the world, so that when you see them <br /> 
-                    out in the wild, you will know what country they're from!
-                </p>
-                <LoginForm className="login-form"/>
-                <span className="signup-btn">Not a member? <Link to="/register">Sign Up</Link></span>
-            </div>
+        <section className="home-navbar">
+            <img className="citymain-logo" src={citymainlogo} alt="citymain logo" />
+        </section>
+        
+        <section className="landing-page-container">
+            <h2 className="welcome-message">Welcome!</h2>
+            <p className="app-description">
+                Learn the name of all the different capital cities
+                in the world!
+            </p>
+            <LoginForm className="login-form"/>
+            <span className="signup-btn">Not a member? <Link to="/register" className="signup-btn-link">Sign Up</Link></span>
+        </section>
         </div>
     );
 }
