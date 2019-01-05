@@ -19,33 +19,33 @@ export class RegistrationForm extends React.Component {
     render() {
         return (
             <form
-                className="registration-form"
+                className="signup-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
-                <label htmlFor="firstName">First name</label>
-                <Field component={Input} type="text" name="firstName" />
-                <label htmlFor="lastName">Last name</label>
-                <Field component={Input} type="text" name="lastName" />
-                <label htmlFor="username">Username</label>
+                {/* <label htmlFor="firstName">First name</label> */}
+                <Field component={Input} type="text" name="First Name" />
+                {/* <label htmlFor="lastName">Last name</label> */}
+                <Field component={Input} type="text" name="Last Name" />
+                {/* <label htmlFor="username">Username</label> */}
                 <Field
                     component={Input}
                     type="text"
-                    name="username"
+                    name="Username"
                     validate={[required, nonEmpty, isTrimmed]}
                 />
-                <label htmlFor="password">Password</label>
+                {/* <label htmlFor="password">Password</label> */}
                 <Field
                     component={Input}
                     type="password"
-                    name="password"
+                    name="Password"
                     validate={[required, passwordLength, isTrimmed]}
                 />
-                <label htmlFor="passwordConfirm">Confirm password</label>
+                {/* <label htmlFor="passwordConfirm">Confirm password</label> */}
                 <Field
                     component={Input}
                     type="password"
-                    name="passwordConfirm"
+                    name="Confirm Password"
                     validate={[required, nonEmpty, matchesPassword]}
                 />
                 <button
