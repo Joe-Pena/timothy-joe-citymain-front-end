@@ -45,9 +45,14 @@ input {
 
 .dashboard {
   display: grid;
-  background-color: teal;
-  grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  grid-template-rows: 20% 30% 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: 
+    ". greeting ."
+    ". question ."
+    ". form .";
   font-size: 1.6rem;
   height: 92vh;
   width: 100%;
@@ -85,8 +90,8 @@ input {
   background-color: rgb(32, 243, 190);
   border: none;
   border-radius: 5px;
-  height: 1.8rem;
-  width: 5rem;
+  height: 1.6rem;
+  width: 4rem;
   cursor: pointer;
 }
 
@@ -97,8 +102,8 @@ input {
   background-color:rgb(32, 243, 190);
   border: none;
   border-radius: 5px;
-  height: 1.8rem;
-  width: 5rem;
+  height: 1.6rem;
+  width: 4rem;
   text-align: center;
   cursor: pointer;
 }
@@ -108,14 +113,20 @@ input {
   justify-content: space-evenly;
 }
 
+.question-area {
+  grid-area: form;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+}
 .question-box {
-  grid-row-start: 3;
-  grid-column-start: 2;
-  border: 1px solid black;
-  border-radius: .5rem;
-  background-color: #fff;
+  grid-area: form;
+  border: 3px solid rgb(32, 243, 190);
+  background-color: transparent;
+  color: rgb(32, 243, 190);
   display: inline-block;
   padding: 2rem;
+  height: 3rem;
   text-align: center;
 }
 
@@ -125,8 +136,10 @@ input {
 }
 
 .dashboard-name {
-  grid-row-start: 2;
-  grid-column-start: 2;
+  grid-area: greeting;
+  display: flex;
+  align-self: center;
+  justify-self: center;
 }
 
 .next-question-btn {
@@ -134,19 +147,53 @@ input {
 }
 
 .guess-form {
-  grid-row-start: 4;
-  grid-column-start: 2;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
-.feedback-after-guess {
-  grid-row-start: 4;
-  grid-column-start: 2;
+.guess-form input {
+  background-color: transparent;
+  border: 2px solid rgb(32, 243, 190);
+  border-radius: 0px;
+  color: white;
+  position: relative;
+  height: 1.8rem;
+  top: 1rem;
+  margin-right: 0.5rem;
+  text-align: center;
+}
+
+.guess-form input::placeholder {
+  color: rgba(32, 243, 190, 0.6);
+}
+
+.guess-form button {
+  background-color: transparent;
+  border: 2px solid rgb(32, 243, 190);
+  border-radius: 0px;
+  color: rgb(32, 243, 190);
+  position: relative;
+  top: 1rem;
+  width: 5rem;
+  cursor: pointer;
+}
+
+.feedback {
+  color: rgb(32, 243, 190);
+  font-size: 1.4rem;
+}
+
+.next-button {
+  background-color: transparent;
+  color: rgb(32, 243, 190);
+  border: 2px solid rgb(32, 243, 190);
+  height: 2rem;
+  width: 4rem;
 }
 
 .what-country-q {
-  grid-row-start: 2;
-  grid-column-start: 2;
-  margin-top: 10rem;
+  grid-area: question;
 }
 
 /* LANDING PAGE */
@@ -346,37 +393,55 @@ input {
 
 .progress-container {
   display: grid;
-  grid-template-rows: 1fr 1fr 0.5fr 1fr;
+  grid-template-rows: 20% 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-row-start: 2;
-  grid-column-start: 2;
-  height: 100vh;
+  grid-template-areas: 
+    ". well back"
+    "stats stats stats";
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 3;
+  grid-column-end: 4;
+  height: 92vh;
   text-align: center;
 }
 
 .progress-message {
-  grid-row-start: 1;
-  grid-column-start: 2;
+  display: flex;
+  grid-area: well;
+  align-self: center;
   font-size: 1.5rem;
 }
 
 .progress-box {
-  grid-row-start: 2;
-  grid-column-start: 2;
-  border: 1px solid black;
-  border-radius: .5rem;
-  background-color: #fff;
-  display: inline-block;
-  padding: 2rem;
-  text-align: center;
+  grid-area: stats;
+  border: none;
+  background-color: transparent;
+  color: rgb(32, 243, 190);
+  display: flex;
+  text-align: left;
   font-size: 1rem;
   list-style: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: auto;
+  padding: 2rem;
 }
 
 .goback-button {
-  grid-row-start: 3;
-  grid-column-start: 2;
+  grid-area: back;
+  display: flex;
+  text-align: center;
   width: 5rem;
   height: 2rem;
-  margin: auto;
+  background-color: transparent;
+  justify-self: center;
+  align-self: center;
+  border: 3px solid rgb(32, 243, 190);
+  color: rgb(32, 243, 190);
+  cursor: pointer;
+}
+
+.username-highlight {
+  color:rgb(32, 243, 190);
 }
