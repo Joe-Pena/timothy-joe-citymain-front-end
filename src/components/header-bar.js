@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import { getProgress } from '../actions/questions';
 import {clearAuthToken} from '../local-storage';
+import citymainlogo from '../images/citymainlogoname.svg';
 
 export class HeaderBar extends React.Component {
     logOut() {
@@ -29,10 +30,12 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
-                <h1>CityMain</h1>
-                <h2 className="header-username">{this.props.username}</h2>
-                {progressButton}
-                {logOutButton}
+                <img className="header-bar-logo" src={citymainlogo} alt="citymain logo" />
+                <section className="header-options">
+                    <h2 className="header-username">{this.props.username}</h2>
+                    {progressButton}
+                    {logOutButton}
+                </section>
             </div>
         );
     }
