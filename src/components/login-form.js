@@ -6,6 +6,7 @@ import {required, nonEmpty} from '../validators';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
+        console.log(values);
         return this.props.dispatch(login(values.username, values.password));
     }
 
@@ -30,6 +31,7 @@ export class LoginForm extends React.Component {
                     type="text"
                     name="username"
                     id="username"
+                    placeholder="Username"
                     validate={[required, nonEmpty]}
                 />
                 <Field
@@ -37,9 +39,10 @@ export class LoginForm extends React.Component {
                     type="password"
                     name="password"
                     id="password"
+                    placeholder="Password"
                     validate={[required, nonEmpty]}
                 />
-                <button disabled={this.props.pristine || this.props.submitting}>
+                <button type="submit" disabled={this.props.pristine || this.props.submitting}>
                     Log in
                 </button>
             </form>
