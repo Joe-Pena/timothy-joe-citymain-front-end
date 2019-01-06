@@ -62,9 +62,9 @@ export class Dashboard extends React.Component {
             return (
                 <div className="dashboard">
                     <div className="progress-container">
-                        <h3 className="progress-message">Here's how well you've done, {this.props.username}</h3>
+                        <p className="progress-message">Here's how well you know your capitals, {this.props.username}</p>
                         <div className="progress-box">
-                            <h2>{stats.map((stat, index) => <li key={index}>{stat.answer}: {stat.numberOfSuccesses}</li>)}</h2>
+                            {stats.map((stat, index) => <span key={index}>{stat.answer}: {stat.numberOfSuccesses}</span>).sort()}
                         </div>
                         <button className="goback-button" onClick={() => this.props.dispatch(getProgress())}>Go back</button>
                     </div>
@@ -78,24 +78,26 @@ export class Dashboard extends React.Component {
                     </div> */}
                     <div className="dashboard-name">Hello, {this.props.name}!</div>
                     <h3 className="what-country-q">Which country is this capital city from?</h3>
-                    <div className="question-box">
-                        <h2>{this.capitalizeCity(question)}</h2>
-                    </div>
-                    {
-                        answered ? 
-                            <div className="feedback-after-guess"> 
-                                <p className='feedback'>{feedback}</p>
-                                <button className='next-button' onClick={() => {
-                                    this.next();
-                                    this.props.dispatch(fetchStats());
-                                    }}>Next</button>
-                            </div>
-                            :
-                            <form className="guess-form" onSubmit={(e) => this.onSubmit(e)}>
-                                <input type="text" placeholder="Your answer here" onChange={(e) => this.setState({value: e.target.value})} value={value}></input>
-                                <button type="submit">submit!</button>
-                            </form>
-                    }
+                    <section className="question-area">
+                        <div className="question-box">
+                            <h2>{this.capitalizeCity(question)}</h2>
+                        </div>
+                        {
+                            answered ? 
+                                <div className="feedback-after-guess"> 
+                                    <p className='feedback'>{feedback}</p>
+                                    <button className='next-button' onClick={() => {
+                                        this.next();
+                                        this.props.dispatch(fetchStats());
+                                        }}>Next</button>
+                                </div>
+                                :
+                                <form className="guess-form" onSubmit={(e) => this.onSubmit(e)}>
+                                    <input type="text" placeholder="Your answer here" onChange={(e) => this.setState({value: e.target.value})} value={value}></input>
+                                    <button type="submit">submit!</button>
+                                </form>
+                        }
+                    </section>
                 </div>
             );
         } else {
