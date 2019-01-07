@@ -172,7 +172,7 @@ input {
   background-color: transparent;
   border: 2px solid rgb(32, 243, 190);
   border-radius: 0px;
-  color: rgb(32, 243, 190);
+  color: #20f3be;
   position: relative;
   top: 1rem;
   width: 5rem;
@@ -205,14 +205,24 @@ input {
   grid-template-areas: 
     "bar bar bar"
     ". login .";
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right bottom,
     rgba(0, 0, 0, 0.8),
     rgba(0, 0, 0, 0.8)),
     url(../images/landingbackground.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   height: 100vh;
+}
+
+.particles {
+  position: fixed;
+  background-color: #282828;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .home-navbar {
