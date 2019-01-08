@@ -122,6 +122,7 @@ export class Dashboard extends React.Component {
 
     constructor(props){
         super(props);
+        this.answerInput = React.createRef();
         this.state = {
             answered: false,
             feedback: null,
@@ -145,7 +146,6 @@ export class Dashboard extends React.Component {
     }
 
     onSubmit(event){
-        event.preventDefault();
         const { correctAnswer } = this.props;
         const answeredCorrectly = this.state.value.toLowerCase().trim() === correctAnswer.toLowerCase().trim();
         this.props.dispatch(answeredQuestion(answeredCorrectly));
@@ -158,11 +158,8 @@ export class Dashboard extends React.Component {
     }
 
     capitalizeCity(name) {
-        console.log(name);
         const capital = name.charAt(0);
-        console.log(capital);
         const rest = name.slice(1).toLowerCase();
-        console.log(rest);
         return capital + rest;
     }
 
@@ -206,8 +203,16 @@ export class Dashboard extends React.Component {
                                         }}>Next</button>
                                 </div>
                                 :
-                                <form className="guess-form" onSubmit={(e) => this.onSubmit(e)}>
-                                    <input type="text" placeholder="Your answer here" onChange={(e) => this.setState({value: e.target.value})} value={value}></input>
+                                <form className="guess-form" onSubmit={(e) => {
+                                    console.log('about to change state', this.answerInput.current.value);
+                                    e.preventDefault();
+                                    this.setState({value: this.answerInput.current.value}, () => this.onSubmit(e));
+                                    // this.onSubmit(e);
+                                    }
+                                }>
+                                    <input type="text" placeholder="Your answer here" ref={this.answerInput}
+                                    // onChange={(e) => this.setState({value: e.target.value})} value={value}
+                                    ></input>
                                     <button type="submit">submit!</button>
                                 </form>
                         }

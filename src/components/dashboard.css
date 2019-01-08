@@ -95,7 +95,6 @@ input {
 }
 
 .logout-btn {
-  width: 5rem;
   display: flex;
   align-self: center;
   background-color:rgb(32, 243, 190);

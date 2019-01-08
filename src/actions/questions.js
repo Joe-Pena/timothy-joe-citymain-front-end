@@ -29,7 +29,6 @@ export const fetchQuestion = () => (dispatch, getState) => {
     }).then(response => {
       return response.json();
     }).then(data => {
-      console.log(data);
       return dispatch(fetchQuestionSuccess(data));
     }).catch(err => {
       alert('Error returning a question');
@@ -41,7 +40,6 @@ export const answeredQuestion = (answeredCorrectly) => (dispatch, getState) => {
   const token = getState().auth.authToken;
   // dispatch(answeredCorrectly);
 
-  console.log('sent to mlab, correct');
   fetch(`${API_BASE_URL}/api/questions`, 
     {
       method: 'PUT',
@@ -70,7 +68,6 @@ export const fetchStats = () => (dispatch, getState) => {
     }).then(response => {
       return response.json();
     }).then(data => {
-      console.log(data);
       return dispatch(fetchStatsSuccess(data));
     }).catch(err => {
       alert('Error returning stats');

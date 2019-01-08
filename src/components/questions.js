@@ -43,7 +43,6 @@ export class Question extends React.Component {
             <button className="next-question-btn" onClick={() => {
               this.props.dispatch(fetchQuestion(this.props.token));
               this.props.dispatch(answerReset());
-              console.log(this.props.gotRightAnswer);
             }}>Next</button>
         </React.Fragment>
       )
