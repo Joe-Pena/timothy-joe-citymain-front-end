@@ -45,7 +45,6 @@ input {
 
 .dashboard {
   display: grid;
-  background-color: rgb(40, 40, 40);
   color: white;
   grid-template-rows: 20% 30% 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -454,4 +453,9 @@ input {
 
 .username-highlight {
   color:rgb(32, 243, 190);
+}
+
+.progress-object {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
