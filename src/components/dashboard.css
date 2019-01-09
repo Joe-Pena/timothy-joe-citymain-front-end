@@ -459,3 +459,23 @@ input {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+
+@media only screen and (max-width: 724px) {
+  .header-bar {
+    grid-template-columns: 40% 1fr;
+  }
+
+  .header-username {
+    display: none;
+  }
+
+  .progress-container {
+grid-template-areas: 
+  "well well back"
+  "stats stats stats";
+  }
+
+  .progress-message {
+    font-size: 2.3vh;
+  }
+}
