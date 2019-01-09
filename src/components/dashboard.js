@@ -164,8 +164,8 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-        const { answered, feedback, value } = this.state;
-        const { question, stats, username } = this.props;
+        const { answered, feedback} = this.state;
+        const { question, stats} = this.props;
 
         if(this.props.checkProgress) {
             return (
