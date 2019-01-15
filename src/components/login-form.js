@@ -6,19 +6,18 @@ import {required, nonEmpty} from '../validators';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
-        console.log(values);
         return this.props.dispatch(login(values.username, values.password));
     }
 
     render() {
-        let error;
-        if (this.props.error) {
-            error = (
-                <div className="form-error" aria-live="polite">
-                    {this.props.error}
-                </div>
-            );
-        }
+        // let error;
+        // if (this.props.error) {
+        //     error = (
+        //         <div className="form-error" aria-live="polite">
+        //             {this.props.error}
+        //         </div>
+        //     );
+        // }
         return (
             <form
                 className="login-form"

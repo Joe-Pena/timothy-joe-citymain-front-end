@@ -45,7 +45,6 @@ input {
 
 .dashboard {
   display: grid;
-  background-color: rgb(40, 40, 40);
   color: white;
   grid-template-rows: 20% 30% 1fr;
   grid-template-columns: 1fr 1fr 1fr;
@@ -96,7 +95,6 @@ input {
 }
 
 .logout-btn {
-  width: 5rem;
   display: flex;
   align-self: center;
   background-color:rgb(32, 243, 190);
@@ -172,7 +170,7 @@ input {
   background-color: transparent;
   border: 2px solid rgb(32, 243, 190);
   border-radius: 0px;
-  color: rgb(32, 243, 190);
+  color: #20f3be;
   position: relative;
   top: 1rem;
   width: 5rem;
@@ -205,14 +203,24 @@ input {
   grid-template-areas: 
     "bar bar bar"
     ". login .";
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right bottom,
     rgba(0, 0, 0, 0.8),
     rgba(0, 0, 0, 0.8)),
     url(../images/landingbackground.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   height: 100vh;
+}
+
+.particles {
+  position: fixed;
+  background-color: #282828;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .home-navbar {
@@ -403,6 +411,7 @@ input {
   grid-row-end: 3;
   grid-column-end: 4;
   height: 92vh;
+  padding: 0 1rem;
   text-align: center;
 }
 
@@ -444,4 +453,29 @@ input {
 
 .username-highlight {
   color:rgb(32, 243, 190);
+}
+
+.progress-object {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+@media only screen and (max-width: 724px) {
+  .header-bar {
+    grid-template-columns: 40% 1fr;
+  }
+
+  .header-username {
+    display: none;
+  }
+
+  .progress-container {
+grid-template-areas: 
+  "well well back"
+  "stats stats stats";
+  }
+
+  .progress-message {
+    font-size: 2.3vh;
+  }
 }

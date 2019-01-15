@@ -19,7 +19,7 @@ export class HeaderBar extends React.Component {
         // Only render the log out button if we are logged in
         let logOutButton;
         let progressButton;
-        let userName;
+        // let userName;
         if (this.props.loggedIn) {
             logOutButton = (
                 <button className="logout-btn" onClick={() => this.logOut()}>Log out</button>
