@@ -20,7 +20,7 @@ export class RegistrationForm extends React.Component {
         return (
             <form
                 className="signup-form"
-                onSubmit={this.props.handleSubmit(values => 
+                onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 <Field 
@@ -69,6 +69,8 @@ export class RegistrationForm extends React.Component {
 
 export default reduxForm({
     form: 'registration',
-    onSubmitFail: (errors, dispatch) =>
+    onSubmitFail: (errors, dispatch) => {
+        alert(Object.values(errors)[0]);
         dispatch(focus('registration', Object.keys(errors)[0]))
+    }
 })(RegistrationForm);
